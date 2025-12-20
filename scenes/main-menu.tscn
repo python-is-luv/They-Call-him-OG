@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://crqrn4pmgaewe"]
+[gd_scene load_steps=9 format=3 uid="uid://crqrn4pmgaewe"]
 
 [ext_resource type="Texture2D" uid="uid://c7kpetybrhakx" path="res://assets/mm-img.webp" id="1_rk22q"]
+[ext_resource type="Script" uid="uid://v8olod2e7tyx" path="res://scripts/main_menu.gd" id="1_xg1py"]
+[ext_resource type="FontFile" uid="uid://bi8808bc2lbrv" path="res://fonts/hirosaki.ttf" id="2_u4kki"]
+[ext_resource type="AudioStream" uid="uid://bhtr4jjxdsjsu" path="res://assets/tamahagane.mp3" id="3_hf3n6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
 resource_name = "purple_button_hover"
@@ -42,6 +45,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="Theme" id="Theme_1"]
+default_font = ExtResource("2_u4kki")
 Button/styles/focus = SubResource("StyleBoxFlat_2")
 Button/styles/hover = SubResource("StyleBoxFlat_2")
 Button/styles/normal = SubResource("StyleBoxFlat_1")
@@ -54,6 +58,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xg1py")
+
+[node name="MmImg" type="Sprite2D" parent="."]
+position = Vector2(578.5, 327.5)
+scale = Vector2(1.3290697, 1.3367769)
+texture = ExtResource("1_rk22q")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -72,14 +82,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -250.0
-offset_right = 150.0
-offset_bottom = -200.0
+offset_left = -41.0
+offset_top = -304.0
+offset_right = 559.0
+offset_bottom = -187.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.8, 0.6, 1, 1)
-theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(0.5803922, 0.13725491, 0.07058824, 1)
+theme_override_fonts/font = ExtResource("2_u4kki")
+theme_override_font_sizes/font_size = 79
 text = "They Call him OG"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,38 +102,50 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -120.0
-offset_right = 100.0
-offset_bottom = 120.0
+offset_left = 332.0
+offset_top = -11.0
+offset_right = 541.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_1")
 
-[node name="HostGameBtn" type="Button" parent="UI/MainContainer/MenuButtons"]
+[node name="START" type="Button" parent="UI/MainContainer/MenuButtons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.9098039, 0.5686275, 0.52156866, 1)
+theme_override_colors/font_hover_color = Color(0.84705883, 0.74509805, 0.7254902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.83137256, 0.70980394, 0.6784314, 1)
+theme_override_fonts/font = ExtResource("2_u4kki")
 theme_override_font_sizes/font_size = 18
 text = "START"
 
-[node name="ServerBrowserBtn" type="Button" parent="UI/MainContainer/MenuButtons"]
+[node name="CREDIT" type="Button" parent="UI/MainContainer/MenuButtons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.47058824, 0.5411765, 1)
 theme_override_font_sizes/font_size = 18
 text = "CREDIT"
 
 [node name="VSeparator" type="VSeparator" parent="UI/MainContainer/MenuButtons"]
 layout_mode = 2
 
-[node name="SettingsBtn" type="Button" parent="UI/MainContainer/MenuButtons"]
+[node name="SETTINGS" type="Button" parent="UI/MainContainer/MenuButtons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7921569, 0.48235294, 0.5411765, 1)
 theme_override_font_sizes/font_size = 18
 text = "SETTINGS"
 
-[node name="QuitBtn" type="Button" parent="UI/MainContainer/MenuButtons"]
+[node name="QUIT" type="Button" parent="UI/MainContainer/MenuButtons"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.8156863, 0.49803922, 0.5372549, 1)
 theme_override_font_sizes/font_size = 18
 text = "QUIT"
 
-[node name="MmImg" type="Sprite2D" parent="."]
-position = Vector2(578.5, 327.5)
-scale = Vector2(1.3290697, 1.3367769)
-texture = ExtResource("1_rk22q")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hf3n6")
+volume_db = -0.001
+autoplay = true
+
+[connection signal="pressed" from="UI/MainContainer/MenuButtons/START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="UI/MainContainer/MenuButtons/CREDIT" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="UI/MainContainer/MenuButtons/SETTINGS" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="UI/MainContainer/MenuButtons/QUIT" to="." method="_on_quit_pressed"]
