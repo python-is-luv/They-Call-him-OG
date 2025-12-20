@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uyjrwdbfl2lb"
-path="res://.godot/imported/attack2_right.png-2c5fdd0f83e6eff519d91433807748fd.ctex"
+path="res://.godot/imported/attack2_right.png-e0853d9fdf1aeb09560713a52d7aa00f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Caleb/ATTACK 2/attack2_right.png"
-dest_files=["res://.godot/imported/attack2_right.png-2c5fdd0f83e6eff519d91433807748fd.ctex"]
+source_file="res://assets/Orochi Genshin/ATTACK 2/attack2_right.png"
+dest_files=["res://.godot/imported/attack2_right.png-e0853d9fdf1aeb09560713a52d7aa00f.ctex"]
 
 [params]
 

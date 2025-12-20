@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvtggdfxfrebp"
-path="res://.godot/imported/idle_up.png-690e9e967696dca206e702696678cf5a.ctex"
+path="res://.godot/imported/idle_up.png-f9e4ea00ec072bbc44ab780b78347fae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Caleb/IDLE/idle_up.png"
-dest_files=["res://.godot/imported/idle_up.png-690e9e967696dca206e702696678cf5a.ctex"]
+source_file="res://assets/Orochi Genshin/IDLE/idle_up.png"
+dest_files=["res://.godot/imported/idle_up.png-f9e4ea00ec072bbc44ab780b78347fae.ctex"]
 
 [params]
 

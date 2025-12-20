@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkwrw66itiwtn"
-path="res://.godot/imported/run_right.png-9097f6958a601b9cbaf5c87bb6edcadc.ctex"
+path="res://.godot/imported/run_right.png-9fd987a5661d732cb8e3c0662edf28ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Caleb/RUN/run_right.png"
-dest_files=["res://.godot/imported/run_right.png-9097f6958a601b9cbaf5c87bb6edcadc.ctex"]
+source_file="res://assets/Orochi Genshin/RUN/run_right.png"
+dest_files=["res://.godot/imported/run_right.png-9fd987a5661d732cb8e3c0662edf28ca.ctex"]
 
 [params]
 
