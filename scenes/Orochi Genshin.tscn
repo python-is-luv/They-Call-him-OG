@@ -1,5 +1,6 @@
-[gd_scene load_steps=74 format=3 uid="uid://cv0bykdgup0d7"]
+[gd_scene load_steps=79 format=3 uid="uid://cv0bykdgup0d7"]
 
+[ext_resource type="Script" uid="uid://dsvn1glybus4i" path="res://scripts/orochi_genshin.gd" id="1_p30ge"]
 [ext_resource type="Texture2D" uid="uid://diap2py1toidp" path="res://assets/Orochi Genshin/IDLE/idle_down.png" id="1_vq7gs"]
 [ext_resource type="Texture2D" uid="uid://cnhop75sxtob7" path="res://assets/Orochi Genshin/IDLE/idle_left.png" id="2_p30ge"]
 [ext_resource type="Texture2D" uid="uid://b4d32qv4ukp4b" path="res://assets/Orochi Genshin/IDLE/idle_right.png" id="3_jgqoi"]
@@ -500,14 +501,60 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vq7gs"]
+radius = 11.0
+height = 56.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq7gs"]
+bg_color = Color(0.27387273, 0.27387276, 0.27387264, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30ge"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgqoi"]
+height = 44.0
+
 [node name="OrochiGenshin" type="CharacterBody2D"]
+script = ExtResource("1_p30ge")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.8146973e-06, 1.0000076)
+scale = Vector2(1.9479166, 2.25)
 sprite_frames = SubResource("SpriteFrames_awe4t")
-animation = &"run_up"
+animation = &"idle_right"
 autoplay = "idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 9)
+shape = SubResource("CapsuleShape2D_vq7gs")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 10
+offset_left = -22.0
+offset_top = -42.0
+offset_right = 22.0
+offset_bottom = -36.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vq7gs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p30ge")
+value = 100.0
+show_percentage = false
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-1, 7)
+shape = SubResource("CapsuleShape2D_jgqoi")
+debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
