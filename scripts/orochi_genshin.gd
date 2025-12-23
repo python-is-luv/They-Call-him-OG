@@ -3,7 +3,8 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var sword_area = $SwordArea
 @onready var hitbox = $Hitbox
-
+@onready var damage_timer: Timer = $DamageTimer
+var damage_source: Node = null
 @export var max_health: int = 100
 @export var current_health: int = 100
 
@@ -17,6 +18,9 @@ signal health_depleted
 signal health_changed(new_health: int)
 
 func _ready() -> void:
+	if has_node("HealthBar"):
+		$HealthBar.max_value = max_health
+		$HealthBar.value = current_health
 	add_to_group("player")
 	
 	# Enable sword area only during attacks
@@ -122,3 +126,11 @@ func die() -> void:
 	health_depleted.emit()
 	print("Player died!")
 	queue_free()
+
+
+func _on_hitbox_body_entered(body: Node) -> void:
+	if body.is_in_group("enemy"):
+		if body.has_method("get_damage"):
+			take_damage(body.get_damage())
+		else:
+			take_damage(10) # fallback damage

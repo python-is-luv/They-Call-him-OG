@@ -61,9 +61,10 @@ func _physics_process(delta: float) -> void:
 
 func chase_player(delta: float) -> void:
 	var direction_to_player = (player.global_position - global_position).normalized()
-	velocity.x = direction_to_player.x * chase_speed
+	velocity = direction_to_player * chase_speed
 	last_direction = direction_to_player
 	
+	# Flip sprite based on X direction
 	if direction_to_player.x > 0:
 		sprite.flip_h = false
 	elif direction_to_player.x < 0:
@@ -132,7 +133,6 @@ func die() -> void:
 	
 	anim.play("death")	
 	collision_shape.set_deferred("disabled", true)
-	
 	await anim.animation_finished	
 	queue_free()
 
