@@ -23,8 +23,7 @@ func _ready() -> void:
 		$HealthBar.value = current_health
 	add_to_group("player")
 	
-	# Enable sword area only during attacks
-	if sword_area:
+	if sword_area:	
 		sword_area.monitoring = false
 
 func _physics_process(delta: float) -> void:
@@ -108,7 +107,6 @@ func take_damage(damage: int) -> void:
 	
 	health_changed.emit(current_health)
 	
-	# Flash effect
 	modulate = Color(1, 0.3, 0.3)
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1)
@@ -117,14 +115,12 @@ func take_damage(damage: int) -> void:
 		die()
 		return
 	
-	# Invincibility frames
 	can_take_damage = false
 	await get_tree().create_timer(damage_cooldown).timeout
 	can_take_damage = true
 
 func die() -> void:
 	health_depleted.emit()
-	print("Player died!")
 	queue_free()
 
 
@@ -133,4 +129,4 @@ func _on_hitbox_body_entered(body: Node) -> void:
 		if body.has_method("get_damage"):
 			take_damage(body.get_damage())
 		else:
-			take_damage(10) # fallback damage
+			take_damage(10)

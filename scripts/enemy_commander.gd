@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
-@onready var attack_area = $AttackArea  # Add this node (Area2D)
+@onready var attack_area = $AttackArea
 
 @export var max_health: int = 40
 @export var current_health: int = 40
@@ -23,25 +23,20 @@ func _ready() -> void:
 	add_to_group("enemy")
 	player = get_tree().get_first_node_in_group("player")
 	
-	# Connect sword area for taking damage
 	if player and player.has_node("SwordArea"):
 		var sword_area: Area2D = player.get_node("SwordArea")
 		sword_area.body_entered.connect(_on_sword_area_entered)
 	
-	# Setup attack area for dealing damage
 	if attack_area:
-		attack_area.monitoring = false  # Only active during attacks
+		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_entered)
 
 func _physics_process(delta: float) -> void:
 	if is_dead or not player:
 		return
 	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
 	if is_attacking:
-		velocity.x = 0
+		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	
@@ -49,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	if distance_to_player > detection_range:
 		play_idle_animation()
-		velocity.x = move_toward(velocity.x, 0, chase_speed)
+		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	
@@ -57,14 +52,13 @@ func _physics_process(delta: float) -> void:
 		perform_attack()
 		return	
 	
-	chase_player(delta)
+	chase_player()
 
-func chase_player(delta: float) -> void:
+func chase_player() -> void:
 	var direction_to_player = (player.global_position - global_position).normalized()
 	velocity = direction_to_player * chase_speed
 	last_direction = direction_to_player
 	
-	# Flip sprite based on X direction
 	if direction_to_player.x > 0:
 		sprite.flip_h = false
 	elif direction_to_player.x < 0:
@@ -79,9 +73,8 @@ func perform_attack() -> void:
 	
 	is_attacking = true
 	can_attack = false
-	velocity.x = 0
+	velocity = Vector2.ZERO
 	
-	# Enable attack hitbox
 	if attack_area:
 		attack_area.monitoring = true
 	
@@ -90,7 +83,6 @@ func perform_attack() -> void:
 	
 	await anim.animation_finished
 	
-	# Disable attack hitbox
 	if attack_area:
 		attack_area.monitoring = false
 	
@@ -99,7 +91,6 @@ func perform_attack() -> void:
 	can_attack = true
 
 func _on_attack_area_entered(body: Node2D) -> void:
-	# Deal damage to player when attack hitbox touches them
 	if body.is_in_group("player") and is_attacking:
 		if body.has_method("take_damage"):
 			body.take_damage(damage_to_player)

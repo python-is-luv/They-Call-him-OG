@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bibcbuk8vtnpy"]
+[gd_scene load_steps=13 format=3 uid="uid://bibcbuk8vtnpy"]
 
 [ext_resource type="Texture2D" uid="uid://cn722dcgaisfx" path="res://assets/top-down-dungeon/Dungeon Tileset/2 Objects/Torches/1.png" id="1_5oiws"]
 [ext_resource type="Texture2D" uid="uid://dyfyw0vx8dnap" path="res://assets/top-down-dungeon/Dungeon Tileset/1 Tiles/Tileset.png" id="1_78itc"]
 [ext_resource type="PackedScene" uid="uid://cv0bykdgup0d7" path="res://scenes/Orochi Genshin.tscn" id="3_5oiws"]
 [ext_resource type="PackedScene" uid="uid://bk057f30pb0rf" path="res://scenes/TUT/Enemy_Commander.tscn" id="4_5gxqw"]
+[ext_resource type="PackedScene" uid="uid://djv1uuogi5t27" path="res://scenes/TUT/Enemy_Samurai.tscn" id="5_xyak7"]
+[ext_resource type="PackedScene" uid="uid://th2krhx1r3n0" path="res://scenes/TUT/Yellow_Enemy.tscn" id="6_tu62j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wmce"]
 texture = ExtResource("1_5oiws")
@@ -263,4 +265,13 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 1, 1, 131072, 1, 2, 196608, 1, 3,
 position = Vector2(59, 76)
 
 [node name="EnemyCommander" parent="." instance=ExtResource("4_5gxqw")]
-position = Vector2(587, 138)
+position = Vector2(532, 136)
+
+[node name="EnemySamurai" parent="." instance=ExtResource("5_xyak7")]
+position = Vector2(227, 410)
+
+[node name="EnemySamurai2" parent="." instance=ExtResource("5_xyak7")]
+position = Vector2(936, 604)
+
+[node name="Yellow_Enemy" parent="." instance=ExtResource("6_tu62j")]
+position = Vector2(506, 589)
