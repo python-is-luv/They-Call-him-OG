@@ -18,9 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://dkwrw66itiwtn" path="res://assets/Orochi Genshin/RUN/run_right.png" id="7_5k53d"]
 [ext_resource type="Texture2D" uid="uid://vroivte7j58k" path="res://assets/Orochi Genshin/RUN/run_up.png" id="8_1487f"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uvr7i"]
-radius = 59.211487
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dntne"]
 atlas = ExtResource("2_uvr7i")
 region = Rect2(0, 0, 96, 80)
@@ -976,14 +973,21 @@ animations = [{
 radius = 11.0
 height = 56.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq7gs"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgqoi"]
+radius = 13.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvr7i"]
+radius = 54.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkohq"]
 bg_color = Color(0.27387273, 0.27387276, 0.27387264, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30ge"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebifp"]
 bg_color = Color(1, 0, 0, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
@@ -991,46 +995,49 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 anti_aliasing = false
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgqoi"]
-height = 44.0
-
 [node name="OrochiGenshin" type="CharacterBody2D"]
+collision_mask = 35
 script = ExtResource("1_p30ge")
-
-[node name="sword_area" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sword_area"]
-shape = SubResource("CircleShape2D_uvr7i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3.8146973e-06, 1.0000076)
 scale = Vector2(1.9479166, 2.25)
 sprite_frames = SubResource("SpriteFrames_awe4t")
-animation = &"attack_up"
+animation = &"attack2_down"
 autoplay = "idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 9)
 shape = SubResource("CapsuleShape2D_vq7gs")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-z_index = 10
-offset_left = -22.0
-offset_top = -42.0
-offset_right = 22.0
-offset_bottom = -36.0
-theme_override_styles/background = SubResource("StyleBoxFlat_vq7gs")
-theme_override_styles/fill = SubResource("StyleBoxFlat_p30ge")
-value = 100.0
-show_percentage = false
-
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 12
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, 7)
 shape = SubResource("CapsuleShape2D_jgqoi")
 debug_color = Color(1, 0, 0, 0.41960785)
 
+[node name="SwordArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea"]
+shape = SubResource("CircleShape2D_uvr7i")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 10
+offset_left = -27.0
+offset_top = -48.0
+offset_right = 31.0
+offset_bottom = -41.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qkohq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ebifp")
+value = 100.0
+show_percentage = false
