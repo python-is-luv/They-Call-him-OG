@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c7kpetybrhakx" path="res://assets/mm-img.webp" id="1_rk22q"]
 [ext_resource type="Script" uid="uid://v8olod2e7tyx" path="res://scripts/main_menu.gd" id="1_xg1py"]
 [ext_resource type="FontFile" uid="uid://bi8808bc2lbrv" path="res://fonts/hirosaki.ttf" id="2_u4kki"]
-[ext_resource type="AudioStream" uid="uid://bhtr4jjxdsjsu" path="res://assets/tamahagane.mp3" id="3_hf3n6"]
+[ext_resource type="AudioStream" uid="uid://coauesngx7kch" path="res://music/Steve Jablonsky - Arrival To Earth (Official Audio) - RHINO.mp3" id="4_xg1py"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
 resource_name = "purple_button_hover"
@@ -82,16 +82,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -41.0
-offset_top = -304.0
-offset_right = 559.0
-offset_bottom = -187.0
+offset_left = -312.0
+offset_top = -289.0
+offset_right = 288.0
+offset_bottom = -172.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.5803922, 0.13725491, 0.07058824, 1)
 theme_override_fonts/font = ExtResource("2_u4kki")
 theme_override_font_sizes/font_size = 79
-text = "They Call him OG"
+text = "Way of the OG"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -141,7 +141,7 @@ theme_override_font_sizes/font_size = 18
 text = "QUIT"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_hf3n6")
+stream = ExtResource("4_xg1py")
 volume_db = -0.001
 autoplay = true
 

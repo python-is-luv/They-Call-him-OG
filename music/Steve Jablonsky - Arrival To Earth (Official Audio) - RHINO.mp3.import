@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://coauesngx7kch"
+path="res://.godot/imported/Steve Jablonsky - Arrival To Earth (Official Audio) - RHINO.mp3-4dbd7aa0d3c677a4308b4fde6738bac6.mp3str"
+
+[deps]
+
+source_file="res://music/Steve Jablonsky - Arrival To Earth (Official Audio) - RHINO.mp3"
+dest_files=["res://.godot/imported/Steve Jablonsky - Arrival To Earth (Official Audio) - RHINO.mp3-4dbd7aa0d3c677a4308b4fde6738bac6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

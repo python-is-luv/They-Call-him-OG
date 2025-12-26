@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://djv1uuogi5t27"]
+[gd_scene load_steps=44 format=3 uid="uid://djv1uuogi5t27"]
 
 [ext_resource type="Script" uid="uid://bv5qmnrvyyecf" path="res://scripts/enemy_samurai.gd" id="1_6wunq"]
 [ext_resource type="Texture2D" uid="uid://dmgweuow61sme" path="res://assets/top-down-dungeon/Enemy_Samurai/Attack_2.png" id="1_jcck5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://uejejtoptf8f" path="res://assets/top-down-dungeon/Enemy_Samurai/Hurt.png" id="4_2xw5d"]
 [ext_resource type="Texture2D" uid="uid://fytne3mknjdr" path="res://assets/top-down-dungeon/Enemy_Samurai/Idle.png" id="5_5pmxv"]
 [ext_resource type="Texture2D" uid="uid://bvmsve54pxy6j" path="res://assets/top-down-dungeon/Enemy_Samurai/Run.png" id="6_xb8hv"]
+[ext_resource type="AudioStream" uid="uid://bd3q75l1kxxno" path="res://music/violent-sword-slice-2-393841.mp3" id="8_pcfqn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6675"]
 atlas = ExtResource("1_jcck5")
@@ -293,3 +294,10 @@ shape = SubResource("CapsuleShape2D_jcck5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(6, 71)
 shape = SubResource("CircleShape2D_6wunq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1.0000076, 2)
+scale = Vector2(1.71875, 1.6796875)
+stream = ExtResource("8_pcfqn")
+volume_db = 6.842
+max_distance = 4096.0

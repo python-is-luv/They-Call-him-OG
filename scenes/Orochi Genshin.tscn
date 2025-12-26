@@ -1,22 +1,22 @@
 [gd_scene load_steps=148 format=3 uid="uid://cv0bykdgup0d7"]
 
 [ext_resource type="Script" uid="uid://dsvn1glybus4i" path="res://scripts/orochi_genshin.gd" id="1_p30ge"]
-[ext_resource type="Texture2D" uid="uid://diap2py1toidp" path="res://assets/Orochi Genshin/IDLE/idle_down.png" id="1_vq7gs"]
-[ext_resource type="Texture2D" uid="uid://dhjbsgjp7rxkm" path="res://assets/Orochi Genshin/ATTACK 1/attack1_down.png" id="2_klolk"]
-[ext_resource type="Texture2D" uid="uid://cnhop75sxtob7" path="res://assets/Orochi Genshin/IDLE/idle_left.png" id="2_p30ge"]
-[ext_resource type="Texture2D" uid="uid://wby3wxb0mqei" path="res://assets/Orochi Genshin/ATTACK 2/attack2_down.png" id="2_uvr7i"]
-[ext_resource type="Texture2D" uid="uid://b4d32qv4ukp4b" path="res://assets/Orochi Genshin/IDLE/idle_right.png" id="3_jgqoi"]
-[ext_resource type="Texture2D" uid="uid://c6cd1d6lb6e84" path="res://assets/Orochi Genshin/ATTACK 2/attack2_left.png" id="3_next0"]
-[ext_resource type="Texture2D" uid="uid://dj6sjd8rdqwbt" path="res://assets/Orochi Genshin/ATTACK 1/attack1_left.png" id="3_vif3v"]
-[ext_resource type="Texture2D" uid="uid://b3uiqqk025dfw" path="res://assets/Orochi Genshin/ATTACK 1/attack1_right.png" id="4_5k53d"]
-[ext_resource type="Texture2D" uid="uid://cvtggdfxfrebp" path="res://assets/Orochi Genshin/IDLE/idle_up.png" id="4_g6a3q"]
-[ext_resource type="Texture2D" uid="uid://uyjrwdbfl2lb" path="res://assets/Orochi Genshin/ATTACK 2/attack2_right.png" id="4_qkohq"]
-[ext_resource type="Texture2D" uid="uid://durhpu7pvwh1k" path="res://assets/Orochi Genshin/ATTACK 2/attack2_up.png" id="5_ebifp"]
-[ext_resource type="Texture2D" uid="uid://c2n57ktoc25sq" path="res://assets/Orochi Genshin/RUN/run_down.png" id="5_klolk"]
-[ext_resource type="Texture2D" uid="uid://wqawt3lhd8ox" path="res://assets/Orochi Genshin/ATTACK 1/attack1_up.png" id="5_vif3v"]
-[ext_resource type="Texture2D" uid="uid://bgbgysf165vd5" path="res://assets/Orochi Genshin/RUN/run_left.png" id="6_vif3v"]
-[ext_resource type="Texture2D" uid="uid://dkwrw66itiwtn" path="res://assets/Orochi Genshin/RUN/run_right.png" id="7_5k53d"]
-[ext_resource type="Texture2D" uid="uid://vroivte7j58k" path="res://assets/Orochi Genshin/RUN/run_up.png" id="8_1487f"]
+[ext_resource type="Texture2D" uid="uid://diap2py1toidp" path="res://main-menu-ka-test/assets/Caleb/IDLE/idle_down.png" id="1_vq7gs"]
+[ext_resource type="Texture2D" uid="uid://dhjbsgjp7rxkm" path="res://main-menu-ka-test/assets/Caleb/ATTACK 1/attack1_down.png" id="2_klolk"]
+[ext_resource type="Texture2D" uid="uid://cnhop75sxtob7" path="res://main-menu-ka-test/assets/Caleb/IDLE/idle_left.png" id="2_p30ge"]
+[ext_resource type="Texture2D" uid="uid://wby3wxb0mqei" path="res://main-menu-ka-test/assets/Caleb/ATTACK 2/attack2_down.png" id="2_uvr7i"]
+[ext_resource type="Texture2D" uid="uid://b4d32qv4ukp4b" path="res://main-menu-ka-test/assets/Caleb/IDLE/idle_right.png" id="3_jgqoi"]
+[ext_resource type="Texture2D" uid="uid://c6cd1d6lb6e84" path="res://main-menu-ka-test/assets/Caleb/ATTACK 2/attack2_left.png" id="3_next0"]
+[ext_resource type="Texture2D" uid="uid://dj6sjd8rdqwbt" path="res://main-menu-ka-test/assets/Caleb/ATTACK 1/attack1_left.png" id="3_vif3v"]
+[ext_resource type="Texture2D" uid="uid://b3uiqqk025dfw" path="res://main-menu-ka-test/assets/Caleb/ATTACK 1/attack1_right.png" id="4_5k53d"]
+[ext_resource type="Texture2D" uid="uid://cvtggdfxfrebp" path="res://main-menu-ka-test/assets/Caleb/IDLE/idle_up.png" id="4_g6a3q"]
+[ext_resource type="Texture2D" uid="uid://uyjrwdbfl2lb" path="res://main-menu-ka-test/assets/Caleb/ATTACK 2/attack2_right.png" id="4_qkohq"]
+[ext_resource type="Texture2D" uid="uid://durhpu7pvwh1k" path="res://main-menu-ka-test/assets/Caleb/ATTACK 2/attack2_up.png" id="5_ebifp"]
+[ext_resource type="Texture2D" uid="uid://c2n57ktoc25sq" path="res://main-menu-ka-test/assets/Caleb/RUN/run_down.png" id="5_klolk"]
+[ext_resource type="Texture2D" uid="uid://wqawt3lhd8ox" path="res://main-menu-ka-test/assets/Caleb/ATTACK 1/attack1_up.png" id="5_vif3v"]
+[ext_resource type="Texture2D" uid="uid://bgbgysf165vd5" path="res://main-menu-ka-test/assets/Caleb/RUN/run_left.png" id="6_vif3v"]
+[ext_resource type="Texture2D" uid="uid://dkwrw66itiwtn" path="res://main-menu-ka-test/assets/Caleb/RUN/run_right.png" id="7_5k53d"]
+[ext_resource type="Texture2D" uid="uid://vroivte7j58k" path="res://main-menu-ka-test/assets/Caleb/RUN/run_up.png" id="8_1487f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dntne"]
 atlas = ExtResource("2_uvr7i")
@@ -1044,4 +1044,8 @@ show_percentage = false
 
 [node name="DamageTimer" type="Timer" parent="."]
 
+[node name="RegenTimer" type="Timer" parent="."]
+wait_time = 7.0
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=52 format=3 uid="uid://th2krhx1r3n0"]
+[gd_scene load_steps=53 format=3 uid="uid://th2krhx1r3n0"]
 
 [ext_resource type="Script" uid="uid://efyc6dvqqrrq" path="res://scripts/yellow_enemy.gd" id="1_pj4kk"]
 [ext_resource type="Texture2D" uid="uid://cdqee43sttt51" path="res://assets/top-down-dungeon/Yellow Enemy/yellowNinja - attack.png" id="1_ylllc"]
 [ext_resource type="Texture2D" uid="uid://dhjysuc2td0nv" path="res://assets/top-down-dungeon/Yellow Enemy/yellowNinja - Whitehit.png" id="2_pj4kk"]
 [ext_resource type="Texture2D" uid="uid://dbpljj6mdarn7" path="res://assets/top-down-dungeon/Yellow Enemy/yellowNinja - idle.png" id="3_om8bq"]
 [ext_resource type="Texture2D" uid="uid://d0s1ok51aj0be" path="res://assets/top-down-dungeon/Yellow Enemy/yellowNinja - walk.png" id="4_gw4m5"]
+[ext_resource type="AudioStream" uid="uid://bd3q75l1kxxno" path="res://music/violent-sword-slice-2-393841.mp3" id="6_om8bq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy4jp"]
 atlas = ExtResource("1_ylllc")
@@ -363,3 +364,7 @@ shape = SubResource("RectangleShape2D_w84fo")
 position = Vector2(1, 51)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ylllc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_om8bq")
+volume_db = 5.474

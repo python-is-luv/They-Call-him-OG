@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bk057f30pb0rf"]
+[gd_scene load_steps=42 format=3 uid="uid://bk057f30pb0rf"]
 
 [ext_resource type="Texture2D" uid="uid://c5d7btoexkswc" path="res://assets/top-down-dungeon/Enemy_Commander/Attack_2.png" id="1_ks2o7"]
 [ext_resource type="Script" uid="uid://bwsa6epxa6hwp" path="res://scripts/enemy_commander.gd" id="1_lqaw1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ya0ldb8silc" path="res://assets/top-down-dungeon/Enemy_Commander/Idle.png" id="2_oms0x"]
 [ext_resource type="Texture2D" uid="uid://c54kcgocunr1y" path="res://assets/top-down-dungeon/Enemy_Commander/Run.png" id="3_8en3a"]
 [ext_resource type="Texture2D" uid="uid://dbwvmrr6t2f24" path="res://assets/top-down-dungeon/Enemy_Commander/Dead.png" id="3_glsnd"]
+[ext_resource type="AudioStream" uid="uid://b76v3t6w7ey56" path="res://music/violent-sword-slice-393848.mp3" id="8_glsnd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4fgn"]
 atlas = ExtResource("1_ks2o7")
@@ -253,7 +254,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqaw1"]
 radius = 17.0
-height = 94.0
+height = 82.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqaw1"]
 radius = 47.0
@@ -271,7 +272,7 @@ frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 18)
+position = Vector2(-1, 26)
 shape = SubResource("CapsuleShape2D_lqaw1")
 
 [node name="AttackArea" type="Area2D" parent="."]
@@ -279,3 +280,8 @@ shape = SubResource("CapsuleShape2D_lqaw1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(6, 35)
 shape = SubResource("CircleShape2D_lqaw1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_glsnd")
+volume_db = 6.842
+max_distance = 4096.0

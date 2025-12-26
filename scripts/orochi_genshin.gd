@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sword_area = $SwordArea
 @onready var hitbox = $Hitbox
 @onready var damage_timer: Timer = $DamageTimer
+@onready var regen_timer: Timer = $RegenTimer
 var damage_source: Node = null
 @export var max_health: int = 100
 @export var current_health: int = 100
@@ -21,10 +22,14 @@ func _ready() -> void:
 	if has_node("HealthBar"):
 		$HealthBar.max_value = max_health
 		$HealthBar.value = current_health
+	
 	add_to_group("player")
 	
-	if sword_area:	
+	if sword_area:
 		sword_area.monitoring = false
+	
+	regen_timer.timeout.connect(_on_regen_timeout)
+	regen_timer.start()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and not is_attacking:
@@ -99,6 +104,9 @@ func take_damage(damage: int) -> void:
 	if not can_take_damage:
 		return
 	
+	regen_timer.stop()
+	regen_timer.start()
+	
 	current_health -= damage
 	current_health = max(0, current_health)
 	
@@ -119,6 +127,7 @@ func take_damage(damage: int) -> void:
 	await get_tree().create_timer(damage_cooldown).timeout
 	can_take_damage = true
 
+
 func die() -> void:
 	health_depleted.emit()
 	queue_free()
@@ -130,3 +139,13 @@ func _on_hitbox_body_entered(body: Node) -> void:
 			take_damage(body.get_damage())
 		else:
 			take_damage(10)
+
+
+func _on_regen_timeout() -> void:
+	if can_take_damage and current_health > 0:
+		current_health = min(current_health + 5, max_health)
+		
+		if has_node("HealthBar"):
+			$HealthBar.value = current_health
+		
+		health_changed.emit(current_health)

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
 @onready var attack_area = $AttackArea
+@onready var hit_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var max_health: int = 40
 @export var current_health: int = 40
@@ -106,13 +107,18 @@ func take_damage(damage: int) -> void:
 	if is_dead:
 		return
 	
-	current_health -= damage	
+	current_health -= damage
+	
+	if hit_sound:
+		hit_sound.play()
+	
 	modulate = Color(2, 2, 2)
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1)
 	
 	if current_health <= 0:
 		die()
+
 
 func die() -> void:
 	if is_dead:

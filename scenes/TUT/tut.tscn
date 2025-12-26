@@ -1,11 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://bibcbuk8vtnpy"]
+[gd_scene load_steps=18 format=3 uid="uid://bibcbuk8vtnpy"]
 
 [ext_resource type="Texture2D" uid="uid://cn722dcgaisfx" path="res://assets/top-down-dungeon/Dungeon Tileset/2 Objects/Torches/1.png" id="1_5oiws"]
 [ext_resource type="Texture2D" uid="uid://dyfyw0vx8dnap" path="res://assets/top-down-dungeon/Dungeon Tileset/1 Tiles/Tileset.png" id="1_78itc"]
+[ext_resource type="Script" uid="uid://ravxdbmi2wt0" path="res://scripts/tut.gd" id="1_ymah1"]
+[ext_resource type="PackedScene" uid="uid://co2bjnv46nxgf" path="res://scenes/CallFromAkari.tscn" id="2_itpg5"]
 [ext_resource type="PackedScene" uid="uid://cv0bykdgup0d7" path="res://scenes/Orochi Genshin.tscn" id="3_5oiws"]
 [ext_resource type="PackedScene" uid="uid://bk057f30pb0rf" path="res://scenes/TUT/Enemy_Commander.tscn" id="4_5gxqw"]
 [ext_resource type="PackedScene" uid="uid://djv1uuogi5t27" path="res://scenes/TUT/Enemy_Samurai.tscn" id="5_xyak7"]
 [ext_resource type="PackedScene" uid="uid://th2krhx1r3n0" path="res://scenes/TUT/Yellow_Enemy.tscn" id="6_tu62j"]
+[ext_resource type="Texture2D" uid="uid://bsi3328qpw2i6" path="res://assets/top-down-dungeon/Text.png" id="7_oqjy0"]
+[ext_resource type="Script" uid="uid://bnwgfw2eo7fmj" path="res://scenes/TUT/texture_rect.gd" id="8_441kd"]
+[ext_resource type="FontFile" uid="uid://bi8808bc2lbrv" path="res://fonts/hirosaki.ttf" id="9_et7yq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wmce"]
 texture = ExtResource("1_5oiws")
@@ -241,6 +246,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_78itc")
 
 [node name="Tut" type="Node2D"]
+script = ExtResource("1_ymah1")
+next_scene = ExtResource("2_itpg5")
 
 [node name="Objects" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -265,13 +272,47 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 1, 1, 131072, 1, 2, 196608, 1, 3,
 position = Vector2(59, 76)
 
 [node name="EnemyCommander" parent="." instance=ExtResource("4_5gxqw")]
-position = Vector2(532, 136)
+position = Vector2(561, 137)
 
 [node name="EnemySamurai" parent="." instance=ExtResource("5_xyak7")]
-position = Vector2(227, 410)
+position = Vector2(311, 528)
 
 [node name="EnemySamurai2" parent="." instance=ExtResource("5_xyak7")]
 position = Vector2(936, 604)
 
 [node name="Yellow_Enemy" parent="." instance=ExtResource("6_tu62j")]
 position = Vector2(506, 589)
+
+[node name="Yellow_Enemy2" parent="." instance=ExtResource("6_tu62j")]
+position = Vector2(175, 382)
+
+[node name="EnemyCommander2" parent="." instance=ExtResource("4_5gxqw")]
+position = Vector2(614, 366)
+
+[node name="EnemyCommander3" parent="." instance=ExtResource("4_5gxqw")]
+position = Vector2(954, 255)
+
+[node name="Yellow_Enemy3" parent="." instance=ExtResource("6_tu62j")]
+position = Vector2(886, 54)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 257.0
+offset_bottom = 181.0
+mouse_filter = 0
+texture = ExtResource("7_oqjy0")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("8_441kd")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 129.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0.9372549, 0, 0.31764707, 1)
+theme_override_fonts/font = ExtResource("9_et7yq")
+theme_override_font_sizes/font_size = 8
+text = "If your health is low, wait for a few seconds for it to regen"
