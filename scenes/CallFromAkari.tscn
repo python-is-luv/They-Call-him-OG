@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://co2bjnv46nxgf"]
+[gd_scene load_steps=17 format=3 uid="uid://co2bjnv46nxgf"]
 
 [ext_resource type="Texture2D" uid="uid://dj7fomn71hswj" path="res://assets/main-characters-home-free-top-down-pixel-art-asset/PNG/Interior.png" id="1_1uewr"]
 [ext_resource type="Texture2D" uid="uid://c8dx83vswtcvb" path="res://assets/main-characters-home-free-top-down-pixel-art-asset/PNG/walls_floor.png" id="2_jmkcq"]
 [ext_resource type="PackedScene" uid="uid://cv0bykdgup0d7" path="res://scenes/Orochi Genshin.tscn" id="3_jmkcq"]
+[ext_resource type="Texture2D" uid="uid://d1g0luy555ex" path="res://assets/textbox.png" id="4_fnkqg"]
+[ext_resource type="Script" uid="uid://cq2u6ywr1h4ur" path="res://scripts/callfromakaridialoguescript.gd" id="4_sauir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnkqg"]
 texture = ExtResource("1_1uewr")
@@ -1539,3 +1541,36 @@ layer_0/tile_data = PackedInt32Array(524299, 196608, 0, 589835, 196608, 1, 65537
 
 [node name="OrochiGenshin" parent="." instance=ExtResource("3_jmkcq")]
 position = Vector2(433, 382)
+
+[node name="Camera2D2" type="Camera2D" parent="OrochiGenshin"]
+
+[node name="Control" type="Control" parent="OrochiGenshin/Camera2D2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -433.0
+offset_top = -382.0
+offset_right = -393.0
+offset_bottom = -342.0
+script = ExtResource("4_sauir")
+
+[node name="TextureRect" type="TextureRect" parent="OrochiGenshin/Camera2D2/Control"]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 398.0
+offset_right = 628.0
+offset_bottom = 490.0
+texture = ExtResource("4_fnkqg")
+
+[node name="DialogueText" type="Label" parent="OrochiGenshin/Camera2D2/Control"]
+layout_direction = 2
+layout_mode = 0
+offset_left = 265.0
+offset_top = 407.0
+offset_right = 604.0
+offset_bottom = 471.0
+theme_override_colors/font_color = Color(0.9057888, 0.08338607, 0.37189752, 1)
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 2
+clip_text = true
+
+[connection signal="gui_input" from="OrochiGenshin/Camera2D2/Control/TextureRect" to="OrochiGenshin/Camera2D2/Control" method="_on_texture_rect_gui_input"]

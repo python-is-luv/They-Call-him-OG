@@ -975,7 +975,7 @@ height = 56.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgqoi"]
 radius = 13.0
-height = 44.0
+height = 52.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uvr7i"]
 radius = 54.0
@@ -1025,11 +1025,11 @@ collision_mask = 2
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea"]
+position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_uvr7i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-position_smoothing_enabled = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 z_index = 10

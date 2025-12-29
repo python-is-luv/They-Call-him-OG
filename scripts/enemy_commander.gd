@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var chase_speed: float = 150.0
 @export var attack_range: float = 50.0
 @export var attack_cooldown: float = 1.5
-@export var detection_range: float = 400.0
+@export var detection_range: float = 300.0
 
 var player: CharacterBody2D = null
 var is_attacking: bool = false
