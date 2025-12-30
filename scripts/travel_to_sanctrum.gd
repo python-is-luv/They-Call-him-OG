@@ -48,3 +48,4 @@ func _on_start_screen_gui_input(event):
 
 func _on_scene_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/SanctrumParkour/SanctrumParkour.tscn")
+	
