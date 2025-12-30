@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cn722dcgaisfx" path="res://assets/top-down-dungeon/Dungeon Tileset/2 Objects/Torches/1.png" id="1_5oiws"]
 [ext_resource type="Texture2D" uid="uid://dyfyw0vx8dnap" path="res://assets/top-down-dungeon/Dungeon Tileset/1 Tiles/Tileset.png" id="1_78itc"]
 [ext_resource type="Script" uid="uid://ravxdbmi2wt0" path="res://scripts/tut.gd" id="1_ymah1"]
-[ext_resource type="PackedScene" uid="uid://bgp833chuenav" path="res://scenes/TravelToSantrik.tscn" id="2_itpg5"]
+[ext_resource type="PackedScene" uid="uid://bgp833chuenav" path="res://scenes/TravelToSactrum/TravelToSanctrum.tscn" id="2_itpg5"]
 [ext_resource type="PackedScene" uid="uid://cv0bykdgup0d7" path="res://scenes/Orochi Genshin.tscn" id="3_5oiws"]
 [ext_resource type="PackedScene" uid="uid://bk057f30pb0rf" path="res://scenes/TUT/Enemy_Commander.tscn" id="4_5gxqw"]
 [ext_resource type="PackedScene" uid="uid://djv1uuogi5t27" path="res://scenes/TUT/Enemy_Samurai.tscn" id="5_xyak7"]

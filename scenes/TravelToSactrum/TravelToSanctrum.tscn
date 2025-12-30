@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgp833chuenav"]
+
+[ext_resource type="PackedScene" uid="uid://8p0bl5glr6cg" path="res://scenes/TravelToSactrum/Shuttle.tscn" id="1_0v12n"]
+[ext_resource type="Script" uid="uid://da7jvdk7q5yrt" path="res://scripts/travel_to_sanctrum.gd" id="1_u6euu"]
+[ext_resource type="PackedScene" uid="uid://bgh1cpqpmx4kd" path="res://scenes/TravelToSactrum/Asteroid.tscn" id="3_7kgyd"]
+[ext_resource type="VideoStream" uid="uid://dmcnpvxha36xl" path="res://assets/TravelToSanctrum/bg.ogv" id="3_xjw1g"]
+[ext_resource type="Texture2D" uid="uid://d1g0luy555ex" path="res://assets/textbox.png" id="4_shl22"]
+
+[node name="TravelToSanctrum" type="Node2D"]
+script = ExtResource("1_u6euu")
+asteroid_scene = ExtResource("3_7kgyd")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -196.0
+offset_top = -136.0
+offset_right = 1312.0
+offset_bottom = 737.0
+stream = ExtResource("3_xjw1g")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Shuttle" parent="." instance=ExtResource("1_0v12n")]
+position = Vector2(571, 547)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(571, 330)
+
+[node name="SceneTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StartScreen" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = 437.0
+offset_right = 1174.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_shl22")
+
+[node name="Label" type="Label" parent="StartScreen"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 34.0
+offset_right = 1143.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.5281443, 0.100910865, 0.18893343, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rob: Alright, you left the stratosphere. Initiating manual override. 
+Use the arrow keys to Control the Rocket/Shuttle and avoid the asteroids...
+<Click to Continue>"
+
+[connection signal="timeout" from="SceneTimer" to="." method="_on_scene_timer_timeout"]
+[connection signal="gui_input" from="StartScreen" to="." method="_on_start_screen_gui_input"]

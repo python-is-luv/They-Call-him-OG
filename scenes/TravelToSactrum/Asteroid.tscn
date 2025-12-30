@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgh1cpqpmx4kd"]
+
+[ext_resource type="Script" uid="uid://b6bdg0cqk6fet" path="res://scripts/asteroid.gd" id="1_gwe61"]
+[ext_resource type="Texture2D" uid="uid://rcvsnw4pliug" path="res://assets/TravelToSanctrum/asteroids/asteroids1.png" id="2_v4sbj"]
+[ext_resource type="Texture2D" uid="uid://dqswde6strusx" path="res://assets/TravelToSanctrum/asteroids/asteroids2.png" id="3_ve4ua"]
+[ext_resource type="Texture2D" uid="uid://46kf8wpyr0os" path="res://assets/TravelToSanctrum/asteroids/asteroids3.png" id="4_bovbb"]
+[ext_resource type="Texture2D" uid="uid://c35x3ipj74jbj" path="res://assets/TravelToSanctrum/asteroids/asteroids4.png" id="5_76btc"]
+[ext_resource type="Texture2D" uid="uid://4ud6ian6o2tw" path="res://assets/TravelToSanctrum/asteroids/asteroids5.png" id="6_piros"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwe61"]
+radius = 46.043457
+
+[node name="Asteroid" type="Area2D"]
+script = ExtResource("1_gwe61")
+asteroid_textures = Array[Texture2D]([ExtResource("2_v4sbj"), ExtResource("3_ve4ua"), ExtResource("4_bovbb"), ExtResource("5_76btc"), ExtResource("6_piros")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gwe61")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
