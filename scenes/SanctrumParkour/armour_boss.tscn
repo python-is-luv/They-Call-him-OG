@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://cadholv0yllfq"]
+[gd_scene load_steps=28 format=3 uid="uid://cadholv0yllfq"]
 
+[ext_resource type="Script" uid="uid://74k61dqtiatc" path="res://scripts/armour_boss(SactrumParkour).gd" id="1_00cqk"]
 [ext_resource type="Texture2D" uid="uid://civc1p0rq7uvp" path="res://assets/Sanctrum Parkour/enemy3.png" id="1_a3dpn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cxot8"]
@@ -111,7 +112,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ytsp")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -183,7 +184,13 @@ animations = [{
 radius = 30.0
 height = 126.0
 
-[node name="ArmourBoss" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_00cqk"]
+radius = 55.97321
+
+[node name="ArmourBoss" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 97
+script = ExtResource("1_00cqk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.536743e-07, 1.9073486e-06)
@@ -194,3 +201,11 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_a3dpn")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_00cqk")
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 2.0

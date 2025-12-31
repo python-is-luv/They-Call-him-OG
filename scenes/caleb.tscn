@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://dprj1legu013r"]
+[gd_scene load_steps=41 format=3 uid="uid://dprj1legu013r"]
 
+[ext_resource type="Script" uid="uid://rpbvqd31rrjs" path="res://scripts/caleb.gd" id="1_81stl"]
 [ext_resource type="Texture2D" uid="uid://glyfo2wwnlf8" path="res://assets/Sanctrum Parkour/Caleb/Attack_1.png" id="1_s1kcf"]
 [ext_resource type="Texture2D" uid="uid://dbb7v0s4mniy0" path="res://assets/Sanctrum Parkour/Caleb/Attack_2.png" id="2_81stl"]
 [ext_resource type="Texture2D" uid="uid://duftw1vfbex3q" path="res://assets/Sanctrum Parkour/Caleb/Hurt.png" id="3_lxf2j"]
@@ -247,25 +248,40 @@ animations = [{
 "texture": SubResource("AtlasTexture_6yem3")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"run",
 "speed": 9.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1kcf"]
 radius = 16.0
-height = 82.0
+height = 48.0
 
-[node name="Caleb" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_81stl"]
+radius = 36.013885
+
+[node name="Caleb" type="CharacterBody2D" groups=["npc"]]
+collision_layer = 64
+collision_mask = 35
+script = ExtResource("1_81stl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)
 scale = Vector2(1.3085938, 1.2148438)
 sprite_frames = SubResource("SpriteFrames_g5cyl")
-animation = &"attack1"
+animation = &"run"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 39)
+position = Vector2(-6, 56)
 shape = SubResource("CapsuleShape2D_s1kcf")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-5, 36)
+shape = SubResource("CircleShape2D_81stl")
+
+[node name="LedgeCheck" type="RayCast2D" parent="."]
+position = Vector2(21, 29)

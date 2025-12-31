@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://fwlx34pwmn2a"]
+[gd_scene load_steps=40 format=3 uid="uid://fwlx34pwmn2a"]
 
 [ext_resource type="Texture2D" uid="uid://dplh7e1nhoayg" path="res://assets/Sanctrum Parkour/Radek/ATTACK 1.png" id="1_af71o"]
+[ext_resource type="Script" uid="uid://bmbxtctd4bbo1" path="res://scripts/radek.gd" id="1_g2vui"]
 [ext_resource type="Texture2D" uid="uid://bujpihvjbhra" path="res://assets/Sanctrum Parkour/Radek/IDLE.png" id="1_rjrqc"]
 [ext_resource type="Texture2D" uid="uid://db3vy4ggvhalw" path="res://assets/Sanctrum Parkour/Radek/ATTACK 2.png" id="2_hqdky"]
 [ext_resource type="Texture2D" uid="uid://u60noiy26uq" path="res://assets/Sanctrum Parkour/Radek/HURT.png" id="3_g2vui"]
@@ -248,7 +249,14 @@ animations = [{
 radius = 16.0
 height = 70.0
 
-[node name="Radek" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2vui"]
+radius = 38.327538
+
+[node name="Radek" type="CharacterBody2D" groups=["npc"]]
+collision_layer = 64
+collision_mask = 35
+script = ExtResource("1_g2vui")
+npc_name = "Radek"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.9073486e-06, 0.9999962)
@@ -261,3 +269,15 @@ frame_progress = 0.14440075
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_4tq8u")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_g2vui")
+
+[node name="LedgeCheck" type="RayCast2D" parent="."]
+position = Vector2(21, -12)
+collision_mask = 33
