@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk3fmoqqfnndo"]
+
+[ext_resource type="Texture2D" uid="uid://d1g0luy555ex" path="res://assets/textbox.png" id="1_qxubd"]
+
+[node name="ToBeContinued" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 641.0
+texture = ExtResource("1_qxubd")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 238.0
+offset_right = 979.0
+offset_bottom = 412.0
+theme_override_colors/font_color = Color(0.7713885, 0, 0.010990657, 1)
+theme_override_font_sizes/font_size = 100
+text = "To Be Continued"

@@ -6,8 +6,8 @@ extends CharacterBody2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var hit_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-@export var max_health: int = 200
-@export var current_health: int = 200
+@export var max_health: int = 40
+@export var current_health: int = 40
 @export var damage_to_player: int = 10
 @export var chase_speed: float = 150.0
 @export var attack_range: float = 50.0

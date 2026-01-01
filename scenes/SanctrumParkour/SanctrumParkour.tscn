@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctkr2xwt45ak7"]
+[gd_scene load_steps=17 format=3 uid="uid://ctkr2xwt45ak7"]
 
 [ext_resource type="Texture2D" uid="uid://c8dow5ntpefm" path="res://assets/Sanctrum Parkour/SanctrumParkour Map/TileSet.png" id="1_5yp0f"]
 [ext_resource type="Script" uid="uid://rjbudaludp2u" path="res://scripts/sanctrum_parkour.gd" id="1_g4s4s"]
 [ext_resource type="PackedScene" uid="uid://bxvbu5b1astcd" path="res://scenes/SanctrumParkour/Orochi/og-platfromer.tscn" id="2_oidra"]
+[ext_resource type="PackedScene" uid="uid://dk3fmoqqfnndo" path="res://scenes/ToBeContinued.tscn" id="2_uqqw2"]
 [ext_resource type="PackedScene" uid="uid://cadholv0yllfq" path="res://scenes/SanctrumParkour/armour_boss.tscn" id="3_3o232"]
 [ext_resource type="PackedScene" uid="uid://dprj1legu013r" path="res://scenes/caleb.tscn" id="4_oidra"]
 [ext_resource type="PackedScene" uid="uid://fwlx34pwmn2a" path="res://scenes/radek.tscn" id="5_i8ym2"]
@@ -218,6 +219,7 @@ size = Vector2(453, 29)
 
 [node name="SanctrumParkour" type="Node2D"]
 script = ExtResource("1_g4s4s")
+next_scene = ExtResource("2_uqqw2")
 
 [node name="bg" type="TileMap" parent="."]
 scale = Vector2(2, 2)
